@@ -54,3 +54,19 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Design services around a single responsibility
 - Use the `providedIn: 'root'` option for singleton services
 - Use the `inject()` function instead of constructor injection
+
+## 追加コンテキスト（このプロジェクトの進め方）
+
+### 現在の構成
+
+- ルートは `src/app/app.html` に `<router-outlet />` のみ
+- Home は遅延ロード: `src/app/app.routes.ts`
+- Home コンポーネント: `src/app/home/home.component.ts`
+- Home テンプレートは Tailwind でスタイリング: `src/app/home/home.component.html`
+- `src/app/home/home.component.css` は空（HTML側に集約）
+
+### UI 実装の方針
+
+- PrimeNG のコンポーネントを利用する（primeng mcp serverが利用可能）
+- 基本CSSファイルは作成せずTailwind によるスタイリングを採用するのユーティリティは HTML 側に記述する
+- 画面は WCAG AA / AXE 準拠を前提に実装する
