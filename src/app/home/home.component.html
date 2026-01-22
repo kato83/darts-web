@@ -1,0 +1,23 @@
+<main class="min-h-svh p-[clamp(2rem,5vw,4.5rem)]">
+  <header>
+    <p class="tracking-widest text-xs">BLE / 手入力 対応</p>
+    <h1 class="text-[clamp(2.6rem,6vw,4.5rem)] leading-[1.05] tracking-tight">
+      {{ title() }}
+    </h1>
+  </header>
+
+  <section class="my-3 grid gap-[clamp(1rem,2.5vw,2rem)] grid-cols-[repeat(auto-fit,minmax(220px,1fr))]"
+    aria-label="ゲーム選択">
+    @for (mode of gameModes(); track mode.id) {
+    <p-card class="block" [attr.data-mode]="mode.id">
+      <ng-template #title>{{ mode.label }}</ng-template>
+      <ng-template #subtitle>{{ mode.subtitle }}</ng-template>
+      <p class="leading-6 mb-3">{{ mode.description }}</p>
+      <ng-template #footer>
+        <p-button label="詳細へ進む" type="button" [ariaLabel]="mode.label + 'を選択'"></p-button>
+      </ng-template>
+    </p-card>
+    }
+  </section>
+
+</main>
